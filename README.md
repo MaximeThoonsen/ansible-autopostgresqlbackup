@@ -1,5 +1,6 @@
-TODO: Update README
-TODO: MAKE GOOD VARS
++TODO: Change tags in tasks
++TODO: MAKE GOOD VARS
++TODO: Update README
 
 Automysqlbackup
 ===============
