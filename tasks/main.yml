@@ -9,41 +9,41 @@
   sudo: yes
   apt: update_cache=yes
   tags:
-    - automysqlbackup
+    - autopostgresqlbackup
 
-- name: Debian | install automysqlbackup
+- name: Debian | install autopostgresqlbackup
   sudo: yes
-  apt: pkg=automysqlbackup state=latest
+  apt: pkg=autopostgresqlbackup state=latest
   tags:
-    - automysqlbackup
+    - autopostgresqlbackup
 
-- name: apply automysqlbackup configuration
+- name: apply autopostgresqlbackup configuration
   sudo: yes
   template:
-    src: automysqlbackup.j2
-    dest: /etc/default/automysqlbackup
+    src: autopostgresqlbackup.j2
+    dest: /etc/default/autopostgresqlbackup
     group: root
     owner: root
     mode: 0600
   tags:
-    - automysqlbackup
+    - autopostgresqlbackup
 
 - name: remove the cron.daily file
   sudo: yes
-  file: path=/etc/cron.daily/automysqlbackup state=absent
+  file: path=/etc/cron.daily/autopostgresqlbackup state=absent
   tags:
-    - automysqlbackup
+    - autopostgresqlbackup
 
-- name: add automysqlbackup cron job
+- name: add autopostgresqlbackup cron job
   sudo: yes
   cron:
-    name: "automysqlbackup"
-    minute: "{{ automysqlbackup_cron.minute }}"
-    hour: "{{ automysqlbackup_cron.hour }}"
-    day: "{{ automysqlbackup_cron.day }}"
-    month: "{{ automysqlbackup_cron.month }}"
-    weekday: "{{ automysqlbackup_cron.weekday }}"
+    name: "autopostgresqlbackup"
+    minute: "{{ autopostgresqlbackup_cron.minute }}"
+    hour: "{{ autopostgresqlbackup_cron.hour }}"
+    day: "{{ autopostgresqlbackup_cron.day }}"
+    month: "{{ autopostgresqlbackup_cron.month }}"
+    weekday: "{{ autopostgresqlbackup_cron.weekday }}"
     user: root
-    job: "/usr/sbin/automysqlbackup"
+    job: "/usr/sbin/autopostgresqlbackup"
   tags:
-    - automysqlbackup
+    - autopostgresqlbackup
