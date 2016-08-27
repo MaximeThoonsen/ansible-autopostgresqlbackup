@@ -11,9 +11,12 @@
   tags:
     - autopostgresqlbackup
 
-- name: Debian | install autopostgresqlbackup
+- name: Debian | Ensure autopostgresqlbackup and other required packages
   sudo: yes
-  apt: pkg=autopostgresqlbackup state=latest
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - autopostgresqlbackup
+    - mailutils
   tags:
     - autopostgresqlbackup
 
