@@ -1,9 +1,9 @@
-Automysqlbackup
+Autopostgresqlbackup
 ===============
 
-[![Build Status](https://travis-ci.org/lyrasis/ansible-automysqlbackup-role.svg?branch=master)](https://travis-ci.org/MaximeThoonsen/ansible-automysqlbackup-role)
+[![Build Status](https://travis-ci.org/lyrasis/ansible-autopostgresqlbackup-role.svg?branch=master)](https://travis-ci.org/MaximeThoonsen/ansible-autopostgresqlbackup-role)
 
-Install the automysqlbackup utility.
+Install the autopostgresqlbackup utility.
 
 ## Requirements
 
