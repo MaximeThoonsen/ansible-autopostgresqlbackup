@@ -31,6 +31,16 @@
   tags:
     - autopostgresqlbackup
 
+- name: Make sure backup directory exists and is writeable (owned) by postgres user
+  file:
+    path={{ autopostgresqlbackup_backup_directory }}
+    state=directory
+    recurse=yes
+    owner=postgres
+    group=postgres
+  tags:
+    - autopostgresqlbackup
+
 - name: remove the cron.daily file
   sudo: yes
   file: path=/etc/cron.daily/autopostgresqlbackup state=absent
