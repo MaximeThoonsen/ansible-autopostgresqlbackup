@@ -5,15 +5,9 @@
     msg: "The operating system of the target machine ({{ inventory_hostname }}) is not currently supported"
   when: not (ansible_os_family == 'Debian' or ansible_distribution == 'Ubuntu')
 
-- name: Debian | run apt update
-  sudo: yes
-  apt: update_cache=yes
-  tags:
-    - autopostgresqlbackup
-
 - name: Debian | Ensure autopostgresqlbackup and other required packages
   sudo: yes
-  apt: pkg={{ item }} state=latest
+  apt: pkg={{ item }} state=latest update_cache=yes
   with_items:
     - autopostgresqlbackup
     - mailutils
